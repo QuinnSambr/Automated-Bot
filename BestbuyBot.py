@@ -1,38 +1,69 @@
 from selenium import webdriver
-from config import bbKey
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.proxy import Proxy, ProxyType
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from config import bbKey , keys
 import time
 
 
+
+# PROXY = "193.122.128.155:3128"
+# webdriver.DesiredCapabilities.CHROME['proxy'] = {
+#     "httpProxy": PROXY,
+#     "ftpProxy": PROXY,
+#     "sslProxy": PROXY,
+#     "proxyType": "MANUAL",
+
+# }
+
+
+
+
 def xPathConfig(xpath):
-    time.sleep(5)
+    wait = WebDriverWait(driver, 10)
+    element = wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
     return driver.find_element_by_xpath(xpath).click()
 
 def TypeConfig(xpath,msg):
+    wait = WebDriverWait(driver, 10)
+    element = wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))
     return driver.find_element_by_xpath(xpath).send_keys(msg)
 
 def preOrderScript():
-    selectCountry   = xPathConfig('/html/body/div[2]/div/div/div/div[1]/div[2]/a[2]')
-    addtoCart       = xPathConfig('//*[@id="fulfillment-add-to-cart-button-bc7ac10d-6086-426f-bc62-0043f5594258"]/div/div/button')
-    time.sleep(2)
-    gotoCart        = xPathConfig('//*[@id="shop-attach-modal-106f459b-5105-4f27-9859-9e8a4886d498-modal"]/div/div[2]/div/div/div/div/div[1]/button[2]')
-    checkout        = xPathConfig('//*[@id="cartApp"]/div[2]/div[1]/div/div/span/div/div[1]/section[2]/div/div/div[3]/div[1]/div[1]/button')
-    guestCheckout   = xPathConfig('/html/body/div[1]/div/section/main/div[4]/div/div[2]/button')
-
-    firstName       = TypeConfig('//*[@id="consolidatedAddresses.ui_address_2.firstName"]',bbKey['FN'])
-    lastName        = TypeConfig('//*[@id="consolidatedAddresses.ui_address_2.lastName"]',bbKey['LN'])
-    strAddress      = TypeConfig('//*[@id="consolidatedAddresses.ui_address_2.street"]',bbKey['STRADD'])
-    city            = TypeConfig('//*[@id="consolidatedAddresses.ui_address_2.city"]',bbKey['CT'])
-    selectState     = TypeConfig('//*[@id="consolidatedAddresses.ui_address_2.street"]',bbKey['ST'])
-    zipCode         = TypeConfig('//*[@id="consolidatedAddresses.ui_address_2.zipcode"]',bbKey['ZC'])
-    emailAdd        = TypeConfig('//*[@id="user.emailAddress"]',bbKey['EMAIL'])
-    phoneNum        = TypeConfig('//*[@id="user.phone"]',bbKey['PN'])
-
-    continuePayment = xPathConfig('//*[@id="checkoutApp"]/div/div[1]/div[1]/main/div[2]/div[2]/form/section/div/div[2]/div/div/button')
+    countrySelect        = xPathConfig('/html/body/div[2]/div/div/div/div[1]/div[2]/a[2]')
+    addCart         = xPathConfig('/html/body/div[3]/main/div[2]/div/div[1]/div[3]/div[2]/div/div[2]/div[1]/div/div/button')
+    driver.get('https://www.bestbuy.com/cart')
+    checkOut        =xPathConfig('/html/body/div[1]/main/div/div[2]/div[1]/div/div/span/div/div[1]/div[1]/section[2]/div/div/div[3]/div/div[1]/button')
+    older           =xPathConfig('/html/body/div[1]/main/div/div[2]/div[1]/div/div[2]/div[2]/div/div/div/div/div/div[1]/div[2]/div[1]/button')
+    guest           =xPathConfig('/html/body/div[1]/div/section/main/div[4]/div/div[2]/button')   
+    firstName       = TypeConfig('/html/body/div[3]/div[2]/div/div/div[1]/div[1]/main/div[2]/div[2]/form/section/div/div[1]/div/div/section/div[2]/div[1]/section/section/div[1]/label/div/input',bbKey['FN'])
+    lastName        = TypeConfig('/html/body/div[3]/div[2]/div/div/div[1]/div[1]/main/div[2]/div[2]/form/section/div/div[1]/div/div/section/div[2]/div[1]/section/section/div[2]/label/div/input',bbKey['LN'])
+    strAddress      = TypeConfig('/html/body/div[3]/div[2]/div/div/div[1]/div[1]/main/div[2]/div[2]/form/section/div/div[1]/div/div/section/div[2]/div[1]/section/section/div[3]/label/div[2]/div/div/input',bbKey['STRADD'])
+    city            = TypeConfig('/html/body/div[3]/div[2]/div/div/div[1]/div[1]/main/div[2]/div[2]/form/section/div/div[1]/div/div/section/div[2]/div[1]/section/section/div[5]/div/div[1]/label/div/input',bbKey['CT'])
+    # selectState     = TypeConfig('/html/body/div[3]/div[2]/div/div/div[1]/div[1]/main/div[2]/div[2]/form/section/div/div[1]/div/div/section/div[2]/div[1]/section/section/div[5]/div/div[2]/label/div/div/select',bbKey['ST'])
+    zipCode         = TypeConfig('/html/body/div[3]/div[2]/div/div/div[1]/div[1]/main/div[2]/div[2]/form/section/div/div[1]/div/div/section/div[2]/div[1]/section/section/div[6]/div/div[1]/label/div/input',bbKey['ZC'])
+    emailAdd        = TypeConfig('/html/body/div[3]/div[2]/div/div/div[1]/div[1]/main/div[2]/div[2]/form/section/div/div[2]/div/section/div[2]/label/div/input',bbKey['EMAIL'])
+    phoneNum        = TypeConfig('/html/body/div[3]/div[2]/div/div/div[1]/div[1]/main/div[2]/div[2]/form/section/div/div[2]/div/section/div[3]/label/div/input',bbKey['PN'])
+    creditCard      = TypeConfig('/html/body/div[3]/div[2]/div/div/div[1]/div[1]/main/div[2]/div[3]/div/section/div[1]/div/section/div[1]/div/input',bbKey['CC'])
 
 
 
 if __name__ == '__main__':
+    print(""" _______                        __      _______                               _______               __     
+/       \                      /  |    /       \                             /       \             /  |    
+$$$$$$$  |  ______    _______ _$$ |_   $$$$$$$  | __    __  __    __         $$$$$$$  |  ______   _$$ |_   
+$$ |__$$ | /      \  /       / $$   |  $$ |__$$ |/  |  /  |/  |  /  | ______ $$ |__$$ | /      \ / $$   |  
+$$    $$< /$$$$$$  |/$$$$$$$/$$$$$$/   $$    $$< $$ |  $$ |$$ |  $$ |/      |$$    $$< /$$$$$$  |$$$$$$/   
+$$$$$$$  |$$    $$ |$$      \  $$ | __ $$$$$$$  |$$ |  $$ |$$ |  $$ |$$$$$$/ $$$$$$$  |$$ |  $$ |  $$ | __ 
+$$ |__$$ |$$$$$$$$/  $$$$$$  | $$ |/  |$$ |__$$ |$$ \__$$ |$$ \__$$ |        $$ |__$$ |$$ \__$$ |  $$ |/  |
+$$    $$/ $$       |/     $$/  $$  $$/ $$    $$/ $$    $$/ $$    $$ |        $$    $$/ $$    $$/   $$  $$/ 
+$$$$$$$/   $$$$$$$/ $$$$$$$/    $$$$/  $$$$$$$/   $$$$$$/   $$$$$$$ |        $$$$$$$/   $$$$$$/     $$$$/  
+                                                           /  \__$$ |                                      
+                                                           $$    $$/                                       
+                                                            $$$$$$/                                        """)
     driver = webdriver.Chrome('./chromedriver')
 
-    driver.get(bbKey['product_url'])
+    driver.get(keys['product_url'])
     preOrderScript()

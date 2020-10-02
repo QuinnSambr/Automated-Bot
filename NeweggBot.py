@@ -24,12 +24,12 @@ def preOrderScript():
         waiter              =WebDriverWait(driver,10).until(
             EC.presence_of_element_located((By.CLASS_NAME,'centerPopup-body'))
         )
-        
-    finally:
         print("Found")
         time.sleep(5)
-        highlightPopup      = xPathConfig('//*[@id="centerPopup632800"]/div')
+        # highlightPopup      = xPathConfig('//*[@id="centerPopup632800"]/div')
         removePopup         = xPathConfig('//*[@id="centerPopup582275"]/div/div[2]/div/div/div[3]/button')
+    except:
+        print("Was not found")
         
 
 if __name__ == '__main__':
