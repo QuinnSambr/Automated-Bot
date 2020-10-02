@@ -1,9 +1,6 @@
-keys = {
-        "product_url": "https://www.bestbuy.com/site/borderlands-3-standard-edition-xbox-one/6345260.p?skuId=6345260",
-        "email": "test@gmail.com",
-        "password":'testpassword',
-
-
+productURL={
+        "bbURL":"https://www.bestbuy.com/site/apple-airpods-with-wireless-charging-case-latest-model-white/6083595.p?skuId=6083595",
+        "neURL":"https://www.newegg.com/black-acer-nitro-vg240y-bmiix-um-qv0aa-002-23-8/p/N82E16824011232?Item=N82E16824011232&quicklink=true",
 }
 
 bbKey ={
@@ -18,3 +15,18 @@ bbKey ={
         "PN":"1627261726",
         "CC":'349057740654298'
 }
+
+neKey={
+        "FN":"John",
+        "LN":"Doe",
+        "ADDR":"4639 Barnes Street",
+        "CTY":"Orlando, Florida(FL), 32822",
+        "ZC":"12345678",
+        "PN":"1627261726",
+        "EMAIL":"brittany_stant@yahoo.com",
+
+
+}
+
+
+
