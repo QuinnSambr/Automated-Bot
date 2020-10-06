@@ -1,5 +1,5 @@
 productURL={
-        "bbURL":"https://www.bestbuy.com/site/apple-airpods-with-wireless-charging-case-latest-model-white/6083595.p?skuId=6083595",
+        "bbURL":"https://www.bestbuy.com/site/nintendo-switch-animal-crossing-new-horizons-edition-32gb-console-multi/6401728.p?skuId=6401728",
         "neURL":"https://www.newegg.com/black-acer-nitro-vg240y-bmiix-um-qv0aa-002-23-8/p/N82E16824011232?Item=N82E16824011232&quicklink=true",
 }
 
