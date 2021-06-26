@@ -8,15 +8,6 @@ from config import  neKey , productURL
 import time
 
 
-# PROXY = "193.122.128.155:3128"
-# webdriver.DesiredCapabilities.CHROME['proxy'] = {
-#     "httpProxy": PROXY,
-#     "ftpProxy": PROXY,
-#     "sslProxy": PROXY,
-#     "proxyType": "MANUAL",
-
-# }
-
 def xPathConfig(xpath):
     wait = WebDriverWait(driver, 10)
     element = wait.until(EC.element_to_be_clickable((By.XPATH, xpath)))

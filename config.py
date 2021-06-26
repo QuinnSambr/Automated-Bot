@@ -1,6 +1,6 @@
 productURL={
-        "bbURL":"https://www.bestbuy.com/site/nintendo-switch-animal-crossing-new-horizons-edition-32gb-console-multi/6401728.p?skuId=6401728",
-        "neURL":"https://www.newegg.com/black-acer-nitro-vg240y-bmiix-um-qv0aa-002-23-8/p/N82E16824011232?Item=N82E16824011232&quicklink=true",
+        "bbURL":"https://www.bestbuy.com/site/sony-streaming-audio-blu-ray-player-black/4743200.p?skuId=4743200",
+        "neURL":"https://www.newegg.com/dyson-180846-02/p/0JA-000S-00078?Item=9SIADVWAPG1959&cm_sp=Homepage_dailydeals-_-P3_9SIADVWAPG1959-_-04022021&quicklink=true",
 }
 
 bbKey ={

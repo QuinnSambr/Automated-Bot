@@ -8,13 +8,6 @@ from config import bbKey , productURL
 import time
 
 
-# PROXY = "193.122.128.155:3128"
-# webdriver.DesiredCapabilities.CHROME['proxy'] = {
-#     "httpProxy": PROXY,
-#     "ftpProxy": PROXY,
-#     "sslProxy": PROXY,
-#     "proxyType": "MANUAL",
-# }
 
 def xPathConfig(xpath):
     wait = WebDriverWait(driver, 10)
@@ -28,11 +21,11 @@ def TypeConfig(xpath,msg):
 
 def preOrderScript():
     countrySelect       = xPathConfig('/html/body/div[2]/div/div/div/div[1]/div[2]/a[2]')
-    addtoCart           = xPathConfig('/html/body/div[3]/main/div[2]/div[3]/div[2]/div/div/div[10]/div[1]/div/div/button')
+    addtoCart           = xPathConfig('/html/body/div[3]/main/div[2]/div/div[1]/div[3]/div[2]/div/div[2]/div[1]/div/div/div/button')
     time.sleep(.5)
     driver.get('https://www.bestbuy.com/cart')
     goToCheckout        =xPathConfig('/html/body/div[1]/main/div/div[2]/div[1]/div/div/span/div/div[1]/div[1]/section[2]/div/div/div[3]/div/div[1]/button')
-    guestLogin          =xPathConfig('/html/body/div[1]/div/section/main/div[4]/div/div[2]/button')   
+    guestLogin          =xPathConfig('/html/body/div[1]/div/section/main/div[2]/div[4]/div/div[2]/button')   
 
     # ---------------------- input variables--------------------------------------------
 
